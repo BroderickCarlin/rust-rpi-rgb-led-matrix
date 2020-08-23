@@ -1,13 +1,15 @@
 extern crate libc;
+
+#[cfg(feature = "args")]
+pub mod args;
 mod c;
+pub use c::LedColor;
+pub use c::LedMatrixOptions;
 
 use libc::{c_char, c_int};
 use std::ffi::CString;
 use std::path::Path;
 use std::ptr::null;
-
-pub use c::LedColor;
-pub use c::LedMatrixOptions;
 
 pub struct LedCanvas {
     handle: *mut c::LedCanvas,

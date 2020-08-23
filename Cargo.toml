@@ -13,11 +13,20 @@ license = "GPL-3.0"
 readme = "README.md"
 edition = "2018"
 
+[features]
+default = []
+args = ["clap"]
+
 [build-dependencies]
 gcc = "0.3"
 
 [dependencies]
 libc = "0.2"
+clap = { version = "2.33", optional = true }
+
+[[example]]
+name = "arguments"
+required-features = ["args"]
 
 [profile.release]
 codegen-units = 1
